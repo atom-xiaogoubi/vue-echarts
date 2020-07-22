@@ -1,17 +1,7 @@
 <template>
     <div id="home">
-        <div v-show="unshow" align="center">
-            <div>
-            <video autoplay muted loop style="width:100%;height:100%;overflow:hidden;z-index:-999">
-                <source src="../assets/front.mp4" type="video/mp4">
-            </video>
-            </div>
-            <img alt="atom logo" src="../assets/atom.jpg"  style="position:absolute;top:30%;left:42%;width:200px;height:200px;opacity:0.7;">
-            <el-button style="position:absolute;top:75%;left:42%" type="info" plain @click="show = !show,unshow=!unshow" icon="el-icon-s-promotion
-">进入Atom的个人主页</el-button>
-        </div>
         <transition name="el-fade-in-linear">
-            <div v-show="show">
+            <div>
                 <el-container>
                     <el-header width="100%">
                         <el-row type="flex" class="row-bg">
@@ -24,10 +14,9 @@
                             <el-collapse-transition>
                                 <div v-show="showlist">
                                     <el-menu>
-                                    <div class="transition-box"> <el-menu-item  index="1" @click="componentName='Hello'"><i class="el-icon-s-home"></i>主页</el-menu-item></div>
-                                    <div class="transition-box"><el-menu-item  index="2" @click="componentName='Anime'"><i class="el-icon-s-data"></i>动漫</el-menu-item></div>
-                                    <div class="transition-box"><el-menu-item  index="3" @click="componentName='Charts'"><i class="el-icon-s-grid"></i>图表</el-menu-item></div>
-                                    <div class="transition-box"> <el-menu-item  index="4" @click="show = !show,unshow=!unshow"><i class="el-icon-s-order"></i>返回首页</el-menu-item></div>
+                                    <div class="transition-box"> <el-menu-item  index="1" @click="componentName='Temperature'"><i class="el-icon-s-home"></i>气温</el-menu-item></div>
+                                    <div class="transition-box"><el-menu-item  index="2" @click="componentName='Forecast'"><i class="el-icon-s-data"></i>预报</el-menu-item></div>
+                                    <div class="transition-box"><el-menu-item  index="3" @click="componentName='Rainfall'"><i class="el-icon-s-grid"></i>降雨</el-menu-item></div>
                                     </el-menu>
                                 </div>
                             </el-collapse-transition>
@@ -43,32 +32,23 @@
 </template>
 
 <script>
-    import Hello from './hello'
-    import Charts from './charts'
-    import Anime from './anime'
+    import Temperature from './temperature'
+    import Forecast from './forecast'
+    import Rainfall from './rainfall'
+
     // fade/zoom 等
     import 'element-ui/lib/theme-chalk/base.css';
     // collapse 展开折叠
     import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
     import Vue from 'vue'
     Vue.component(CollapseTransition.name, CollapseTransition)
-    var hit=0;
     export default {
         name: 'home',
-        components: {Hello,Anime,Charts},
+        components: {Temperature,Forecast,Rainfall},
         methods: {
-            open1() {
-                hit++;
-                this.$message({
-                    message: '你打了atom ' + hit + ' 次! 别打了！',
-                    type: 'error'
-                });
-            },
         },
         data: () => ({
-            componentName:'Hello',
-            show: false,
-            unshow: true,
+            componentName:'Temperature',
             showlist:true,
             value1: null,
             value2: null,
