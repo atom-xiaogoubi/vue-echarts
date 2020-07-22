@@ -1,21 +1,20 @@
 <template>
-  <div class="hello" align="center">
-    <el-main width="77%">
-      <img alt="back" src="../assets/pic1.jpg" style="z-index:-1;position: relative; width:100%;background-size: cover"/>
+  <el-container>
+    <el-main style="margin: auto;width:100%">
+      <img alt="back" src="../assets/pic1.jpg" style="z-index:-1;position: relative;background-size:cover;width:100%;"/>
       <div style="position: absolute;top:15%;left:48%;font-size: 50px;color: white">这是欢迎页！</div>
-      <div style="position: absolute;top:25%;left:40%;font-size: 50px;color: white">欢迎来到atom的主页</div>
+      <div style="position: absolute;top:25%;left:42%;font-size: 50px;color: white">欢迎来到atom的主页</div>
       <!--<img alt="atom logo" src="../assets/atom.png" style="position: absolute;top:310%;left:55%;width: 100px;height: 100px;"/>-->
     </el-main>
-    <el-footer>
-      <div class="block">
-        <span class="demonstration">请给我评分</span>
-        <el-rate
+    <el-footer style="margin: auto">
+      <el-container>
+        <el-rate style="width:100%;"
                 v-model="value2"
                 :colors="colors">
         </el-rate>
-      </div>
+      </el-container>
     </el-footer>
-  </div>
+  </el-container>
 </template>
 
 <script>

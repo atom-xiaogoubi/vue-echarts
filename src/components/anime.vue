@@ -1,28 +1,27 @@
 <template>
-    <div class="anime" align="center">
-        <el-main width="77%">
-            <el-carousel :interval="6000" type="card">
+    <el-container>
+        <el-main style="margin: auto;width:100%">
+            <el-carousel :interval="6000" type="card" style="margin: auto;">
                 <el-carousel-item v-for="(img,index) in imgList" :key="index" style="height: 293px !important;">
                     <img v-bind:src="img.url">
                 </el-carousel-item>
             </el-carousel>
             <!--<img alt="atom logo" src="../assets/atom.png" style="position: absolute;top:310%;left:55%;width: 100px;height: 100px;"/>-->
-            <el-carousel :interval="3000" height="800px">
+            <el-carousel :interval="3000" height="800px" style="margin: auto;">
                 <el-carousel-item v-for="(img,index) in imgList_nogif" :key="index" style="position:absolute;left:16%;width:600px !important;height: 800px !important;">
                     <img v-bind:src="img.url">
                 </el-carousel-item>
             </el-carousel>
         </el-main>
-        <el-footer>
-            <div class="block">
-                <span class="demonstration">请给我评分</span>
-                <el-rate
-                        v-model="value2"
-                        :colors="colors">
+        <el-footer style="margin: auto">
+            <el-container>
+                <el-rate style="width:100%;"
+                         v-model="value2"
+                         :colors="colors">
                 </el-rate>
-            </div>
+            </el-container>
         </el-footer>
-    </div>
+        </el-container>
 </template>
 <script>
     export default {

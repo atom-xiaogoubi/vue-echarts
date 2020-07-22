@@ -1,5 +1,5 @@
 import Home from './components/home.vue'
-import Game from './components/game.vue'
+import Charts from './components/charts.vue'
 
 const routers = [
     {
@@ -12,9 +12,9 @@ const routers = [
           component: Home
   },
     {
-        path: '/game',
-        name: 'game',
-        component: Game
+        path: '/chart',
+        name: 'chart',
+        component: Charts
     },
 ]
 export default routers
